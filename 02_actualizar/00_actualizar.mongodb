@@ -1,0 +1,17 @@
+// Poner en uso la base de datos
+use("cell_store")
+
+
+// Listar documentos
+db.products.find()
+
+// Actualizar documentos
+db.products.updateOne({
+    _id: ObjectId("6927b012085ef9e06b3638c3")
+},
+
+{
+    $set: {name: "Samgun S25 Ultra"}
+})
+
+db.products.find()
