@@ -1,1 +1,14 @@
 // Mi primer archico para Mongo DB
+// Base de Datos -> Colecciones -> Documentos -> Atributos (campos)
+// Para que una BD exista debe tener colecciones
+// Para que existan colecciones deben existir documentos
+// Los documentos están compuestos por atributos
+
+// Crear una base de datos
+use("cell_store")
+
+// Crear colección
+db.products.insertOne({
+    name: "Samsung",
+    price: 3500
+})
