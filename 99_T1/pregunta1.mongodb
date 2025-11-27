@@ -1,0 +1,28 @@
+use("dbTechStore")
+
+db.equipos.insertMany(
+    [
+        {nombre: "Laptop Asus", categoria: "Portátiles", precio: 2500, stock: 30, accesorios: ["Cargador", "Funda de protección", "Ratón inalámbrico"]},
+        {nombre: "Monitor LG", categoria: "Monitores", precio: 999, stock: 20, accesorios: ["Cable HDMI", "Base ajustable", "Adaptador de corriente"]},
+        {nombre: "Teclado Logitech", categoria: "Teclados", precio: 180, stock: 30, accesorios: ["Reposa muñecas", "Extractor de teclas", "Cable USB desmontable"]},
+        {nombre: "Impresora Epson", categoria: "Impresoras", precio: 1230, stock: 100, accesorios: ["Cartucho de tóner", "Cable USB", "Manual de usuario"]},
+        {nombre: "Tablet Lenovo", categoria: "Tablets", precio: 1750, stock: 300, accesorios: ["Cargador rápido", "Funda protectora", "Lápiz táctil"]}
+    ]
+)
+
+
+db.clientes.insertMany(
+    [
+        {_id: "001", nombre: "Juan", apellido: "Pérez", fecha_nacimiento: "15/05/1990", celular: "987654321", 
+            categorias_interes: ["Laptops", "Monitores", "Impresoras"]},
+        {_id: "002", nombre: "Ana", apellido: "Gómez", fecha_nacimiento: "", celular: "987654322", 
+            categorias_interes: ["Tablets", "Teclados", "Ratones", "Monitores"]},
+        {_id: "003", nombre: "Luis", apellido: "Martínez", fecha_nacimiento: "30/11/1988", celular: "987654323",	 
+            categorias_interes: ["Laptops", "Accesorios", "Impresoras", "Teclados"]},
+        {_id: "004", nombre: "María", apellido: "López", fecha_nacimiento: "17/02/1988",	 celular: "",  
+            categorias_interes: ["Impresoras", "Monitores", "Proyectores"]},
+        {_id: "005", nombre: "Sofía", apellido: "Ramírez", fecha_nacimiento: "25/09/1993", celular: "987654326",	 
+            categorias_interes: ["Tablets", "Accesorios", "Software", "Monitores"]}
+    ]
+)
+

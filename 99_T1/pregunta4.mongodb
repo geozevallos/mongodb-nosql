@@ -1,0 +1,42 @@
+
+
+
+// db
+use("dbTechStore")
+
+
+/*
+// •	Elimine un documento de la colección equipos a través de “_id”
+db.equipos.findOneAndDelete({
+    _id: ObjectId('6927c963498c821657b35762')
+    })
+    */
+   
+   /*
+   // •	Elimine los documentos de los equipos cuyas cantidades de stock sea 30.
+   db.equipos.deleteMany(
+    {
+        stock: {$eq: 30}
+        }
+        )
+        */
+
+/*
+//  Elimine en la colección clientes los datos de María López
+db.clientes.findOneAndDelete(
+    {
+        nombre: 'María',
+        apellido: 'López'
+    }
+)
+ */
+
+/*
+•	Elimine todos los documentos de los equipos.
+*/
+db.equipos.deleteMany({})
+
+/*
+•	Elimine la colección clientes.
+*/
+db.clientes.drop()

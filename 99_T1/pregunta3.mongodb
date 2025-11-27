@@ -1,0 +1,66 @@
+/*
+PREGUNTA 3.-
+Utilizando la colección equipos:
+•	Actualice el nombre del equipo: Monitor LG por Monitor Samsung
+•	Actualice el precio de la Tablet Lenovo de 1750 a 2350.
+
+*/
+
+// db
+use("dbTechStore")
+
+/*
+db.equipos.updateOne(
+    {
+        nombre: "Monitor LG"
+    },
+    {
+        $set: {nombre: "Monitor Samsung"}
+    }
+
+)
+
+
+db.equipos.updateOne(
+    {
+        nombre: "Tablet Lenovo"
+    },
+    {
+        $set: {precio: 2350}
+    }
+    
+)
+
+db.equipos.find()
+*/
+
+/**
+ * Utilizando la colección clientes:
+•	Actualice la fecha de nacimiento de Ana Gómez por 06/06/2006
+•	Actualice el número de celular de Juan Pérez por: 989654333
+ */
+
+db.clientes.updateOne(
+    {
+        _id: "002"
+    },
+    {
+        $set: {
+            fecha_nacimiento: "06/06/2006"
+        }
+    }
+)
+
+
+db.clientes.updateOne(
+    {
+        _id: "001"
+    },
+    {
+        $set: {
+            celular: "989654333"
+        }
+    }
+)
+
+db.clientes.find()
