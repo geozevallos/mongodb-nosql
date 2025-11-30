@@ -1,0 +1,74 @@
+use("dbdbGastroManager");
+
+
+/*
+1. **Ajuste de Precios:** El limón ha subido de precio. Actualiza el precio de la "Limonada Frozen" a 15.00.
+db.menu.updateOne(
+    {nombre: "Limonada Frozen"},
+    {$set: {precio: 15.00}}
+)
+
+db.menu.find({nombre: "Limonada Frozen"})
+*/
+
+/*
+2. **Mejora de Receta (Reto Array):** El Chef ha decidido agregar "Sillao" a los ingredientes del "Lomo Saltado". (Uso sugerido de `$push`).
+db.menu.updateOne(
+    {nombre: 'Lomo Saltado'},
+    {$push: {ingredientes: "Sillao"}}
+)
+db.menu.find({nombre: 'Lomo Saltado'})
+*/
+
+/*
+3. **Cambio de Estado:** La Mesa 2 ya recibió su comida. Actualiza el estado del pedido de la Mesa 2 de "Pendiente" a "Servido".
+db.pedidos.updateOne(
+    {mesa: 2},
+    {$set: {estado: "Servido"}}
+)
+db.pedidos.find({mesa: 2})
+*/
+
+/*
+4. Agrega 3 propuestas más de cambios de datos en las colecciones.
+*/
+
+/*
+4.1 Se agregaron 2 pedidos a la mesa 5
+db.pedidos.updateOne(
+    {mesa: 5},
+    {$push: {items: {$each: ["Anticuchos", "Pachamanca"]}}}
+)
+db.pedidos.find({mesa: 5})
+*/
+
+
+/**
+ * 4.2 Las mesas 6,7,9 cambiaron su estado a pagado
+db.pedidos.updateMany(
+    {mesa: {$in: [6,7,9]}},
+    {$set: {estado: "Pagado"}}
+)
+db.pedidos.find(
+    {mesa: {$in: [6,7,9]}}
+)
+*/
+
+/**
+  4.3 El precio del pollo, bajo actualizar el precio en 2 soles menos
+ */
+db.menu.updateMany(
+    {
+        ingredientes: "Pollo"
+    },
+    {
+        $inc: {
+            "precio": -2
+        }
+    }
+)
+db.menu.find(
+     {
+        ingredientes: "Pollo"
+    }
+)

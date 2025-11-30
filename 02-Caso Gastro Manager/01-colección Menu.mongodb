@@ -1,0 +1,82 @@
+use("dbdbGastroManager");
+
+// Menu
+db.menu.insertOne(
+{
+  "nombre": "Lomo Saltado",
+  "categoria": "Fondo",
+  "precio": 45.00,
+  "ingredientes": ["Lomo fino", "Cebolla", "Tomate", "Papas fritas"],
+  "esVegano": false,
+  "disponible": true
+}
+);
+
+db.menu.insertOne(
+{
+  "nombre": "Ensalada César",
+  "categoria": "Entrada",
+  "precio": 22.00,
+  "ingredientes": ["Lechuga", "Crutones", "Parmesano", "Pollo"],
+  "esVegano": false,
+  "disponible": true
+}
+);
+
+db.menu.insertOne(
+{
+  "nombre": "Limonada Frozen",
+  "categoria": "Bebida",
+  "precio": 12.00,
+  "ingredientes": ["Limón", "Hielo", "Jarabe"],
+  "esVegano": true,
+  "disponible": true
+}
+);
+
+db.menu.insertOne(
+{
+  "nombre": "Pachamanca",
+  "categoria": "Fondo",
+  "precio": 65.00,
+  "ingredientes": ["Carne de cerdo", "Pollo", "Papa", "Camote", "Maíz", "Hierbas aromáticas", "Ají panca"],
+  "esVegano": false,
+  "disponible": true
+}
+);
+
+db.menu.insertOne(
+{
+  "nombre": "Seco de Chabelo",
+  "categoria": "Fondo",
+  "precio": 48.00,
+  "ingredientes": ["Cabrito", "Cebolla", "Ají amarillo", "Cilantro", "Papas", "Zarza de cebolla"],
+  "esVegano": false,
+  "disponible": true
+}
+);
+
+db.menu.insertOne(
+{
+  "nombre": "Chicha de Jora",
+  "categoria": "Bebida",
+  "precio": 15.00,
+  "ingredientes": ["Maíz jora", "Azúcar", "Clavo", "Canela"],
+  "esVegano": true,
+  "disponible": true
+}
+);
+
+db.menu.insertOne(
+{
+  "nombre": "Chicha Morada",
+  "categoria": "Bebida",
+  "precio": 10.00,
+  "ingredientes": ["Maíz morado", "Piña", "Clavo", "Canela", "Azúcar"],
+  "esVegano": true,
+  "disponible": true
+}
+);
+
+
+db.menu.find();

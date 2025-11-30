@@ -1,0 +1,19 @@
+use("dbdbGastroManager");
+
+/**
+**Eliminación Específica:** Se ha retirado la "Ensalada César" de la carta. Elimínala de la colección `menu`
+db.menu.findOneAndDelete(
+    {nombre: "Ensalada César"}
+)
+
+db.menu.find()
+*/
+
+
+/*
+**Limpieza Operativa:** El día ha terminado, elimina todos los pedidos que tengan el estado "Pagado" para limpiar el sistema para mañana.
+*/
+db.pedidos.deleteMany(
+    {estado: "Pagado"}
+)
+db.pedidos.find()

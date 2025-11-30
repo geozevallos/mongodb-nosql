@@ -1,0 +1,30 @@
+use("dbdbGastroManager");
+
+
+
+// Pedidos
+db.pedidos.insertMany([
+  {"mesa": 5, "mesero": "Juan", "items": ["Lomo Saltado", "Limonada Frozen"], "total": 57.00, "estado": "Servido"},
+  {"mesa": 2, "mesera": "Ana", "items": ["Ensalada César"], "total": 22.00, "estado": "Pendiente"},
+  {"mesa": 8, "mesero": "Juan", "items": ["Lomo Saltado", "Lomo Saltado", "Inca Kola"], "total": 95.00, "estado": "En Cocina"},
+  {"mesa": 1, "mesera": "Ana", "items": ["Café", "Torta de Chocolate"], "total": 18.00, "estado": "Pagado"},
+]);
+
+// 5. Agrega 11 pedidos a la colección pedidos
+
+db.pedidos.insertMany([
+  {"mesa": 3, "mesero": "Carlos", "items": ["Pachamanca", "Chicha de Jora"], "total": 80.00, "estado": "Servido"},
+  {"mesa": 4, "mesera": "María", "items": ["Seco de Chabelo", "Limonada Frozen"], "total": 58.00, "estado": "Pendiente"},
+  {"mesa": 6, "mesero": "Juan", "items": ["Causa Limeña", "Anticuchos", "Chicha Morada"], "total": 60.00, "estado": "En Cocina"},
+  {"mesa": 7, "mesera": "Ana", "items": ["Lomo Saltado", "Ensalada César", "Inca Kola"], "total": 72.00, "estado": "Pagado"},
+  {"mesa": 9, "mesero": "Carlos", "items": ["Seco de Chabelo", "Pachamanca"], "total": 113.00, "estado": "Pendiente"},
+  {"mesa": 10, "mesera": "María", "items": ["Arroz con Mariscos", "Limonada Frozen"], "total": 55.00, "estado": "Servido"},
+  {"mesa": 11, "mesero": "Juan", "items": ["Anticuchos", "Chicha de Jora"], "total": 45.00, "estado": "En Cocina"},
+  {"mesa": 12, "mesera": "Ana", "items": ["Causa Limeña", "Lomo Saltado"], "total": 63.00, "estado": "Pagado"},
+  {"mesa": 13, "mesero": "Carlos", "items": ["Pachamanca", "Seco de Chabelo"], "total": 120.00, "estado": "Pendiente"},
+  {"mesa": 14, "mesera": "María", "items": ["Lomo Saltado", "Causa Limeña", "Inca Kola"], "total": 72.00, "estado": "Servido"},
+  {"mesa": 15, "mesero": "Juan", "items": ["Chicha Morada", "Arroz con Mariscos"], "total": 58.00, "estado": "En Cocina"}
+]);
+
+
+db.pedidos.find()

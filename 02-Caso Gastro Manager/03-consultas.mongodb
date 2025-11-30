@@ -1,0 +1,25 @@
+use("dbdbGastroManager");
+
+//1. Listar todos los platillos que sean de la categoría "Fondo".
+db.menu.find({
+    categoria: "Fondo"
+})
+
+// 2. Buscar todos los platillos que **NO** contengan "Pollo" en sus ingredientes (Uso de operador `$ne` o lógica inversa).
+db.menu.find({
+    ingredientes: {$ne: "Pollo"}
+})
+// 3. Listar solo el `nombre` y `precio` de los platillos que sean Veganos (`esVegano: true`).
+db.menu.find(
+    {
+    esVegano: true
+    },
+    {
+    nombre: 1, precio: 1, _id: 0
+    }
+)
+
+// 4. Encontrar todos los pedidos que esté atendiendo el mesero "Juan" y que todavía estén en estado "En Cocina".
+db.pedidos.find({
+    mesero: "Juan", estado: "En Cocina"
+})
