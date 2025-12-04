@@ -1,0 +1,37 @@
+/*
+### Fase 3:
+
+Modificar datos anidados sin romper el resto del documento.
+
+- **Telemetría (Update Nested):** El Drone "D-99" se ha movido y consumido energía. Actualiza su batería a 40 **Y** cambia su ubicación `lat` y `lng` en una sola operación.
+- **Registro de Evento (Push Object):** La Van "V-20" acaba de pasar por el mecánico. Agrega un nuevo objeto al array `mantenimientos`: `{ fecha: hoy, tipo: "Limpieza Inyectores", costo: 120 }`.
+- **Corrección (Inc):** Se detectó un error de calibración. Incrementa en 5km la `autonomia_km` (dentro de `specs`) de todos los Scooters. *Uso del operador `$inc`*.
+- Elabora 3 propuestas de actualización de datos que sean parte del contexto del caso y que agreguen valor a la base de datos
+*/
+use("dbEcoFleet");
+
+// Telemetria
+db.flota.updateOne(
+      {_id: "D-99"},
+      {$set: {"ubicacion.lat": -12.08, "ubicacion.lng": -77.33, "bateria": 40}}
+)
+
+// Registro de evento
+/*
+db.flota.updateOne(
+      {_id: "V-20"},
+      {$push: {mantenimientos: { fecha: new Date(), tipo: "Limpieza Inyectores", costo: 120 }}}
+)
+      */
+
+
+// Corrección
+// db.flota.updateMany(
+    //   {tipo: "Scooter"},
+    //   {$inc: {"specs.autonomia_km": 5}}
+// )
+
+
+db.flota.find(
+      {tipo: "Scooter"}
+)

@@ -1,0 +1,49 @@
+/*
+### Fase 2:
+
+Aprender a buscar dentro de sub-documentos.
+
+- **La Búsqueda Profunda:** Encuentra todos los vehículos cuya marca (dentro de `specs`) sea "Xiaomi". *Pista: Usar comillas para la ruta "specs.marca".*
+- **Rango Numérico:** Lista los vehículos con batería crítica (menos del 20%) O que estén en estado "En Taller".
+- **Consulta dentro de Array:** Encuentra los vehículos que hayan tenido algún mantenimiento de tipo "Cambio Llantas". *MongoDB busca automáticamente dentro de los objetos del array.*
+- Elabora 3 propuestas de consultas que agreguen valor al conocimiento de los datos de negocio
+*/
+
+use("dbEcoFleet");
+
+// Busqueda profunda
+db.flota.find(
+    {
+        "specs.marca": "Xiaomi"
+    }
+)
+
+// Rango numérico
+db.flota.find(
+    {$or : [{bateria: {$lt: 20}}, {estado: "En Taller"}]}
+    
+)
+
+// Consulta dentro de Array: modificada la busqueda
+db.flota.find(
+    {"mantenimientos.tipo": "Cambio de rotores"}
+)
+
+
+// 3 propuestas:
+// Ver mantenimientos hechos en enero del 2024
+db.flota.find(
+    {"mantenimientos.fecha": {$gte: "2024-01-01", $lte: "2024-01-31"}}
+)
+
+// Placas que empiecen con A
+db.flota.find(
+    {"specs.placa": {$regex: "^a", $options: "i"}}
+)
+
+// Vehiculos que tienen mantenimiento
+db.flota.find(
+    {
+        mantenimientos: {$exists: true, $ne: []}
+    }
+)

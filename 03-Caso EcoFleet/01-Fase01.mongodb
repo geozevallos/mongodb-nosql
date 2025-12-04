@@ -1,0 +1,189 @@
+/* 
+### Fase 1:
+
+Insertar documentos que no son idénticos en estructura .
+
+- **Inserción 1 (Scooter):** Inserta un Scooter ID "S-01", Marca Xiaomi, Batería 100%, Ubicación (Lima Centro), sin mantenimientos previos.
+- **Inserción 2 (Drone):** Inserta un Drone ID "D-99". OJO: En `specs`, un drone tiene `altura_maxima` y `rotores`, atributos que el scooter no tiene. Batería al 50%.
+- **Inserción 3 (Van):** Inserta una Van ID "V-20". En `specs` tiene `placa` y `volumen_carga`. Incluye ya un mantenimiento histórico: `{ fecha: "2024-01-10", tipo: "Revisión Motor", costo: 200 }`.
+- Inserta 10 documentos similares a la estructura propuesta y documentos anteriores.
+*/
+use("dbEcoFleet")
+
+
+//Inserción 1
+db.flota.insertOne(
+    {
+    _id: "S-01",
+    tipo: "Scooter",
+    estado: "Activo",
+    bateria: 100,
+    ubicacion: {
+        lat: -12.05,
+        lng: -77.04
+    },
+    specs: {
+        marca: "Xiaomi",
+        modelo: "Pro 2",
+        autonomia_km: 45
+    },
+    "mantenimientos": []
+    },
+);
+
+//Inserción 2
+db.flota.insertOne(
+    {
+    _id: "D-99",
+    tipo: "Drone",
+    estado: "Activo",
+    bateria: 50,
+    ubicacion: {
+        lat: -12.07,
+        lng: -77.03
+    },
+    specs: {
+        altura_maxima: 80,
+        rotores: 4
+    },
+    mantenimientos: []
+    }
+)
+
+//Inserción 3
+db.flota.insertOne(
+    {
+    _id: "V-20",
+    tipo: "Van",
+    estado: "Activo",
+    bateria: 80,
+    ubicacion: {
+        lat: -12.10,
+        lng: -77.05
+    },
+    specs: {
+        placa: "ABC-123",
+        volumen_carga: 12
+    },
+    mantenimientos: [
+        { fecha: "2024-01-10", tipo: "Revisión Motor", costo: 200 }
+    ]
+}
+)
+
+// Insertando 10
+
+db.flota.insertMany([
+  {
+    _id: "D-20",
+    tipo: "Drone",
+    estado: "Activo",
+    bateria: 80,
+    ubicacion: { lat: -12.01, lng: -77.01 },
+    specs: { altura_maxima: 120, rotores: 4 },
+    mantenimientos: []
+  },
+
+  {
+    _id: "D-21",
+    tipo: "Drone",
+    estado: "En Taller",
+    bateria: 40,
+    ubicacion: { lat: -12.015, lng: -77.03 },
+    specs: { altura_maxima: 90, rotores: 6 },
+    mantenimientos: [
+      { fecha: "2024-01-05", tipo: "Cambio de rotores", costo: 60 }
+    ]
+  },
+
+  {
+    _id: "D-22",
+    tipo: "Drone",
+    estado: "Activo",
+    bateria: 95,
+    ubicacion: { lat: -12.02, lng: -77.015 },
+    specs: { altura_maxima: 140, rotores: 8 },
+    mantenimientos: []
+  },
+
+  {
+    _id: "D-23",
+    tipo: "Drone",
+    estado: "En Taller",
+    bateria: 25,
+    ubicacion: { lat: -12.04, lng: -77.025 },
+    specs: { altura_maxima: 110, rotores: 4 },
+    mantenimientos: [
+      { fecha: "2024-02-10", tipo: "Reparación cámara", costo: 120 },
+      { fecha: "2024-02-20", tipo: "Cambio hélices", costo: 45 }
+    ]
+  },
+
+  {
+    _id: "D-24",
+    tipo: "Drone",
+    estado: "Activo",
+    bateria: 70,
+    ubicacion: { lat: -12.03, lng: -77.05 },
+    specs: { altura_maxima: 160, rotores: 6 },
+    mantenimientos: []
+  },
+
+  {
+    _id: "D-25",
+    tipo: "Drone",
+    estado: "Activo",
+    bateria: 88,
+    ubicacion: { lat: -12.05, lng: -77.045 },
+    specs: { altura_maxima: 200, rotores: 4 },
+    mantenimientos: [
+      { fecha: "2023-12-10", tipo: "Ajuste sensores", costo: 35 }
+    ]
+  },
+
+  {
+    _id: "S-06",
+    tipo: "Scooter",
+    estado: "Activo",
+    bateria: 78,
+    ubicacion: { lat: -12.045, lng: -77.04 },
+    specs: { marca: "Xiaomi", modelo: "Mi Electric 4", autonomia_km: 52 },
+    mantenimientos: []
+  },
+
+  {
+    _id: "S-07",
+    tipo: "Scooter",
+    estado: "En Taller",
+    bateria: 10,
+    ubicacion: { lat: -12.048, lng: -77.048 },
+    specs: { marca: "Segway", modelo: "Max G2", autonomia_km: 60 },
+    mantenimientos: [
+      { fecha: "2024-03-01", tipo: "Cambio frenos", costo: 55 }
+    ]
+  },
+
+  {
+    _id: "V-30",
+    tipo: "Van",
+    estado: "Activo",
+    bateria: 55,
+    ubicacion: { lat: -12.09, lng: -77.08 },
+    specs: { placa: "BGT-900", volumen_carga: 10 },
+    mantenimientos: []
+  },
+
+  {
+    _id: "V-31",
+    tipo: "Van",
+    estado: "En Taller",
+    bateria: 35,
+    ubicacion: { lat: -12.11, lng: -77.10 },
+    specs: { placa: "FRT-341", volumen_carga: 16 },
+    mantenimientos: [
+      { fecha: "2024-01-28", tipo: "Revisión suspensión", costo: 180 }
+    ]
+  }
+]);
+
+db.flota.find()
