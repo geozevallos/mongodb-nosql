@@ -1,0 +1,43 @@
+use("dbStreamCloud");
+
+//Eliminar coleccion catalogo
+db.catalogo.drop();
+
+db.catalogo.insertMany([
+    { titulo: "Avengers: Endgame", tipo: "Pelicula", genero: "Accion", anio: 2019, vistas: 5000000, esOriginal: false },
+    { titulo: "Stranger Things", tipo: "Serie", genero: "Sci-Fi", anio: 2016, vistas: 8500000, esOriginal: true, temporadas: 4 },
+    { titulo: "The Crown", tipo: "Serie", genero: "Drama", anio: 2016, vistas: 3000000, esOriginal: true, temporadas: 6 },
+    { titulo: "Inception", tipo: "Pelicula", genero: "Sci-Fi", anio: 2010, vistas: 4200000, esOriginal: false },
+    { titulo: "John Wick 4", tipo: "Pelicula", genero: "Accion", anio: 2023, vistas: 6100000, esOriginal: false },
+    { titulo: "Dark", tipo: "Serie", genero: "Sci-Fi", anio: 2017, vistas: 2000000, esOriginal: true, temporadas: 3 },
+    { titulo: "The Matrix", tipo: "Pelicula", genero: "Sci-Fi", anio: 1999, vistas: 7000000, esOriginal: false },
+    { titulo: "Breaking Bad", tipo: "Serie", genero: "Drama", anio: 2008, vistas: 9000000, esOriginal: false, temporadas: 5 },
+    { titulo: "The Office", tipo: "Serie", genero: "Comedia", anio: 2005, vistas: 8800000, esOriginal: false, temporadas: 9 },
+    { titulo: "Spider-Man: Across the Spider-Verse", tipo: "Pelicula", genero: "Animacion", anio: 2023, vistas: 4500000, esOriginal: false },
+    { titulo: "The Mandalorian", tipo: "Serie", genero: "Sci-Fi", anio: 2019, vistas: 6500000, esOriginal: true, temporadas: 3 },
+    { titulo: "Parasite", tipo: "Pelicula", genero: "Drama", anio: 2019, vistas: 3800000, esOriginal: false },
+    { titulo: "Squid Game", tipo: "Serie", genero: "Drama", anio: 2021, vistas: 12000000, esOriginal: true, temporadas: 1 },
+    { titulo: "Interstellar", tipo: "Pelicula", genero: "Sci-Fi", anio: 2014, vistas: 5100000, esOriginal: false },
+    { titulo: "The Witcher", tipo: "Serie", genero: "Fantasia", anio: 2019, vistas: 4000000, esOriginal: true, temporadas: 3 },
+    { titulo: "Friends", tipo: "Serie", genero: "Comedia", anio: 1994, vistas: 8200000, esOriginal: false, temporadas: 10 },
+    { titulo: "Joker", tipo: "Pelicula", genero: "Drama", anio: 2019, vistas: 4900000, esOriginal: false },
+    { titulo: "Game of Thrones", tipo: "Serie", genero: "Fantasia", anio: 2011, vistas: 9500000, esOriginal: false, temporadas: 8 },
+    { titulo: "Black Mirror", tipo: "Serie", genero: "Sci-Fi", anio: 2011, vistas: 3200000, esOriginal: true, temporadas: 6 },
+    { titulo: "Coco", tipo: "Pelicula", genero: "Animacion", anio: 2017, vistas: 5500000, esOriginal: false },
+    { titulo: "La Casa de Papel", tipo: "Serie", genero: "Accion", anio: 2017, vistas: 6700000, esOriginal: true, temporadas: 5 },
+    { titulo: "Oppenheimer", tipo: "Pelicula", genero: "Drama", anio: 2023, vistas: 5800000, esOriginal: false },
+    { titulo: "Barbie", tipo: "Pelicula", genero: "Comedia", anio: 2023, vistas: 6200000, esOriginal: false },
+    { titulo: "The Last of Us", tipo: "Serie", genero: "Drama", anio: 2023, vistas: 5300000, esOriginal: false, temporadas: 1 },
+    { titulo: "Avatar: The Way of Water", tipo: "Pelicula", genero: "Sci-Fi", anio: 2022, vistas: 7500000, esOriginal: false },
+    { titulo: "Wednesday", tipo: "Serie", genero: "Comedia", anio: 2022, vistas: 6000000, esOriginal: true, temporadas: 1 },
+    { titulo: "Top Gun: Maverick", tipo: "Pelicula", genero: "Accion", anio: 2022, vistas: 4800000, esOriginal: false },
+    { titulo: "Better Call Saul", tipo: "Serie", genero: "Drama", anio: 2015, vistas: 3500000, esOriginal: true, temporadas: 6 },
+    { titulo: "The Godfather", tipo: "Pelicula", genero: "Drama", anio: 1972, vistas: 2900000, esOriginal: false },
+    { titulo: "Pulp Fiction", tipo: "Pelicula", genero: "Crimen", anio: 1994, vistas: 3100000, esOriginal: false },
+    { titulo: "Spirited Away", tipo: "Pelicula", genero: "Animacion", anio: 2001, vistas: 2500000, esOriginal: false },
+    { titulo: "The Queen's Gambit", tipo: "Serie", genero: "Drama", anio: 2020, vistas: 4100000, esOriginal: true, temporadas: 1 },
+    { titulo: "The Boys", tipo: "Serie", genero: "Accion", anio: 2019, vistas: 4700000, esOriginal: true, temporadas: 4 },
+    { titulo: "Dune", tipo: "Pelicula", genero: "Sci-Fi", anio: 2021, vistas: 3900000, esOriginal: false },
+    { titulo: "Mad Max: Fury Road", tipo: "Pelicula", genero: "Accion", anio: 2015, vistas: 3600000, esOriginal: false },
+    { titulo: "Chernobyl", tipo: "Serie", genero: "Drama", anio: 2019, vistas: 2800000, esOriginal: false, temporadas: 1 }
+])

@@ -1,0 +1,8 @@
+// Crear base de datos
+use("dbStreamCloud")
+
+// Buscar las películas cuyo atributo año sea menor e igual que 2000
+db.catalogo.find(
+    {anio: {$lte: 2000}, tipo: "Pelicula"},
+    {_id: 0}
+).sort({anio: 1})

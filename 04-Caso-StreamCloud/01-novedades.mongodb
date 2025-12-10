@@ -1,0 +1,11 @@
+use("dbStreamCloud");
+
+// El usuario quiere ver qué contenido multimedia hay del año 2023
+db.catalogo.find(
+    {
+    anio: 2019
+    },
+    {
+        _id: 0
+    }
+)

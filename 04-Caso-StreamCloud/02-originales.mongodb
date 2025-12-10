@@ -1,0 +1,13 @@
+// Crear base de datos
+use("dbStreamCloud")
+
+// Listar todas las series que sean Originales
+// Mostrar sólo el título y las temporadas
+db.catalogo.find(
+    {esOriginal: true, tipo: "Serie"},
+    {titulo:1, temporadas: 1, _id:0}
+).sort(
+    {
+        titulo: 1
+    }
+)
