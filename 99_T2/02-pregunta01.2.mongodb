@@ -1,0 +1,17 @@
+/*
+Muestre los clientes que tienen como parte de 
+sus preferencias ropa de niños. 
+Considere visualizar sólo los campos: 
+nombres, apellidos, fecha de registro y 
+preferencias. 
+Ordene por fecha de registros de manera 
+ascendente.
+*/
+
+
+use("UrbanStyle_store")
+
+db.clients.find(
+    {preferencias: "Niño"},
+    {_id: 0, nombre:1, apellidos:1, fechaRegistro: 1, preferencias:1}
+).sort({fechaRegistro: 1})

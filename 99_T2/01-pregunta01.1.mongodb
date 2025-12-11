@@ -1,0 +1,15 @@
+/*
+Muestre los clientes que no residan en Breña ni en La Molina. Ordene en descendente por apellidos. Sólo debe mostrar los campos: nombres, apellidos, email e historial de compras.	
+*/
+
+use("UrbanStyle_store")
+
+db.clients.find(
+    {
+        $nor: [
+            {direccion: {$regex: /Breña/i}},
+            {direccion: {$regex: /La Molina/i}},
+        ]
+    },
+    {nombre: 1, apellidos:1, email:1, historialCompras: 1, _id: 0}
+).sort({apellidos: -1})

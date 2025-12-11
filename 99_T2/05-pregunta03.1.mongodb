@@ -1,0 +1,13 @@
+/*
+Utilizando la colección vendedores mostrar nombres, ventas mensuales
+ y sede en la que labora, la lista debe mostrar después del tercer 
+ documento, filtre por sede que sea la “Sucursal Sur”. 
+ Ordene por cualquier campo.
+*/
+
+use("UrbanStyle_store")
+
+db.sellers.find(
+    {sucursal: "Sucursal Sur"},
+    {nombre: 1, "metas.ventasMensuales":1, sucursal:1}
+).skip(3).sort({apellidos: 1});

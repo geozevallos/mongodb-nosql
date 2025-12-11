@@ -1,0 +1,8 @@
+// Crear base de datos
+use("dbStreamCloud")
+
+// Listar todas las series que se han filmado antes del año 2000
+db.catalogo.find({
+    tipo: "Serie",
+    anio: {$lt: 2000}
+})

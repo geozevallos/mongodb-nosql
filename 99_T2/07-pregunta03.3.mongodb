@@ -1,0 +1,15 @@
+/*
+Mostrar todos aquellos vendedores en los que dentro 
+de su campo “ventas mensuales” sea mayor e igual 
+que 10000 y menor que 11000. 
+Ordene en descendente por nombre.
+*/
+
+use("UrbanStyle_store")
+
+db.sellers.find(
+    {
+        "metas.ventasMensuales": {$gte: 10000, $lt: 11000}
+    },
+    {_id: 0}
+).sort({nombre: -1})

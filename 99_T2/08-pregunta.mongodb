@@ -1,0 +1,54 @@
+
+use("UrbanStyle_store")
+
+
+db.factura.insertOne(
+{
+  "nro_factura": "ES-001",
+  "fecha_emision": "2019-01-29",
+  "fecha_vencimiento": "2019-01-29",
+  "cliente": {
+    "nombre": "Laura García",
+    "direccion_facturacion": "Leda Villarreal Virgen Blanca 63 08759 Burgos, Burgos",
+    "direccion_envio": "Leda Villarreal Cercas Bajas 68 473000 Cadiz, Cadiz"
+  },
+  "empresa": {
+    "nombre": "Rojo Polo Paella Inc.",
+    "direccion": "Carretera Muelle 38 37531 Ávila, Ávila"
+  },
+  "items": [
+    {
+      "cantidad": 1,
+      "descripcion": "Talla pequeña traje de luces en rojo",
+      "precio_unitario": 100.00,
+      "importe": 100.00
+    },
+    {
+      "cantidad": 2,
+      "descripcion": "Mui grande churrolito",
+      "precio_unitario": 25.00,
+      "importe": 50.00
+    },
+    {
+      "cantidad": 3,
+      "descripcion": "Equipaje de Fútbol",
+      "precio_unitario": 5.00,
+      "importe": 15.00
+    }
+  ],
+  "totales": {
+    "subtotal": 165.00,
+    "iva": 34.65,
+    "total": 199.65
+  },
+  "condiciones_pago": {
+    "plazo": "15 días",
+    "banco": "Banco Santander",
+  }
+}
+)
+
+db.factura.find(
+    {"cliente.nombre": "Laura García", "totales.total": {$gt: 100}},
+    {nro_factura:1, fecha_emision:1, cliente: 1, empresa:1, items:1}
+).sort({"totales.total": -1});

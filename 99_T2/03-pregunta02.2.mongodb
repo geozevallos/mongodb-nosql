@@ -1,0 +1,20 @@
+/*
+Mostrar los productos 
+cuyo precio sea mayor a 55
+ o color “azul”, 
+ no considerar de la 
+ temporada “Invierno”
+*/
+
+use("UrbanStyle_store")
+
+db.products.find(
+    {
+        $or: [
+            {precio: {$gt: 55}},
+            {"especificaciones.color": "Azul"}
+        ],
+        "especificaciones.temporada": {$ne: "Invierno"}
+    }
+);
+

@@ -1,0 +1,15 @@
+/*
+Listar sólo los nombres, apellidos y fecha de ingreso
+ (sin “_id”), ordenada en descendente por apellidos, 
+ recuperar los 4 primeros documentos. 
+ Filtre sólo los vendedores cuya cantidad de clientes 
+ nuevos que atienden sean menores e iguales que 20.
+*/
+
+use("UrbanStyle_store")
+
+db.sellers.find(
+    {"metas.clientesNuevos": {$lte: 20}},
+    {nombre: 1, apellidos: 1, fechaIngreso: 1, _id: 0}
+).limit(4).sort({apellidos: -1})
+
