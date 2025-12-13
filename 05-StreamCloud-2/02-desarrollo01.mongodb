@@ -1,0 +1,33 @@
+// 1. Usar la BD
+use ('dbStreamCloudTwo')
+
+
+// El "Top 5" de la Crítica
+// Contexto:* Mostrar las 5 películas mejor calificadas.
+//db.catalogo.find({tipo: "Pelicula"}).sort({rating: -1}).limit(5);
+
+// Las peores películas activas
+/*
+db.catalogo.find({
+    tipo: "Pelicula"
+    estado: "Activo"
+}).sort({rating: 1}).limit(5);
+ */
+
+// Listar los documentos de las películas que se han agregado recientemenete:
+//db.catalogo.find({tipo: "Pelicula"}).sort({anio: -1}).limit(5);
+
+//Peliculas con estado inactivo
+//db.catalogo.find({estado: "Inactivo", tipo: "Pelicula"}).count()
+
+//-------------------------------
+
+//Listar todo el contenido, cuyo
+// rating > 8.5 y tiene vistas < 5M
+db.catalogo.find(
+    {
+        rating: {$gt: 8.5},
+        vistas: {$lt: 5000000}
+}
+)
+

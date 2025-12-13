@@ -1,0 +1,68 @@
+// 1. Usar la BD
+use ('dbStreamCloudTwo')
+
+// 2. Limpieza (Para evitar duplicados si re-ejecutas)
+db.catalogo.drop()
+
+// 3. Inserción Masiva de 50 Documentos
+db.catalogo.insertMany([
+  // --- ACCIÓN (Blockbusters) ---
+  { titulo: "John Wick 4", tipo: "Pelicula", genero: "Accion", anio: 2023, vistas: 9500000, rating: 8.8, estado: "Activo" },
+  { titulo: "Mad Max: Fury Road", tipo: "Pelicula", genero: "Accion", anio: 2015, vistas: 8200000, rating: 8.1, estado: "Activo" },
+  { titulo: "Top Gun: Maverick", tipo: "Pelicula", genero: "Accion", anio: 2022, vistas: 9100000, rating: 8.4, estado: "Activo" },
+  { titulo: "Gladiator", tipo: "Pelicula", genero: "Accion", anio: 2000, vistas: 7500000, rating: 8.5, estado: "Inactivo" },
+  { titulo: "Die Hard", tipo: "Pelicula", genero: "Accion", anio: 1988, vistas: 6000000, rating: 8.2, estado: "Activo" },
+  { titulo: "Terminator 2", tipo: "Pelicula", genero: "Accion", anio: 1991, vistas: 7800000, rating: 8.6, estado: "Activo" },
+  { titulo: "The Dark Knight", tipo: "Pelicula", genero: "Accion", anio: 2008, vistas: 9900000, rating: 9.0, estado: "Activo" },
+  { titulo: "Avengers: Endgame", tipo: "Pelicula", genero: "Accion", anio: 2019, vistas: 9800000, rating: 8.4, estado: "Activo" },
+  { titulo: "Black Panther", tipo: "Pelicula", genero: "Accion", anio: 2018, vistas: 7200000, rating: 7.3, estado: "Activo" },
+  { titulo: "Skyfall", tipo: "Pelicula", genero: "Accion", anio: 2012, vistas: 6500000, rating: 7.8, estado: "Inactivo" },
+
+  // --- SCI-FI (Series y Pelis) ---
+  { titulo: "Inception", tipo: "Pelicula", genero: "Sci-Fi", anio: 2010, vistas: 8900000, rating: 8.8, estado: "Activo" },
+  { titulo: "Interstellar", tipo: "Pelicula", genero: "Sci-Fi", anio: 2014, vistas: 8700000, rating: 8.6, estado: "Activo" },
+  { titulo: "Dune", tipo: "Pelicula", genero: "Sci-Fi", anio: 2021, vistas: 5400000, rating: 8.0, estado: "Activo" },
+  { titulo: "Blade Runner 2049", tipo: "Pelicula", genero: "Sci-Fi", anio: 2017, vistas: 4100000, rating: 8.0, estado: "Activo" },
+  { titulo: "The Matrix", tipo: "Pelicula", genero: "Sci-Fi", anio: 1999, vistas: 9300000, rating: 8.7, estado: "Activo" },
+  { titulo: "Stranger Things", tipo: "Serie", genero: "Sci-Fi", anio: 2016, vistas: 8500000, rating: 8.7, temporadas: 4, estado: "Activo" },
+  { titulo: "Dark", tipo: "Serie", genero: "Sci-Fi", anio: 2017, vistas: 2000000, rating: 8.8, temporadas: 3, estado: "Activo" },
+  { titulo: "Black Mirror", tipo: "Serie", genero: "Sci-Fi", anio: 2011, vistas: 3200000, rating: 8.8, temporadas: 6, estado: "Activo" },
+  { titulo: "The Mandalorian", tipo: "Serie", genero: "Sci-Fi", anio: 2019, vistas: 6500000, rating: 8.7, temporadas: 3, estado: "Activo" },
+  { titulo: "Ex Machina", tipo: "Pelicula", genero: "Sci-Fi", anio: 2014, vistas: 2500000, rating: 7.7, estado: "Inactivo" },
+
+  // --- DRAMA (Clásicos y Modernos) ---
+  { titulo: "The Godfather", tipo: "Pelicula", genero: "Drama", anio: 1972, vistas: 9000000, rating: 9.2, estado: "Activo" },
+  { titulo: "Parasite", tipo: "Pelicula", genero: "Drama", anio: 2019, vistas: 6200000, rating: 8.5, estado: "Activo" },
+  { titulo: "Schindler's List", tipo: "Pelicula", genero: "Drama", anio: 1993, vistas: 5500000, rating: 9.0, estado: "Activo" },
+  { titulo: "Forrest Gump", tipo: "Pelicula", genero: "Drama", anio: 1994, vistas: 8800000, rating: 8.8, estado: "Activo" },
+  { titulo: "Fight Club", tipo: "Pelicula", genero: "Drama", anio: 1999, vistas: 8100000, rating: 8.8, estado: "Activo" },
+  { titulo: "Joker", tipo: "Pelicula", genero: "Drama", anio: 2019, vistas: 7500000, rating: 8.4, estado: "Activo" },
+  { titulo: "Breaking Bad", tipo: "Serie", genero: "Drama", anio: 2008, vistas: 9000000, rating: 9.5, temporadas: 5, estado: "Activo" },
+  { titulo: "The Crown", tipo: "Serie", genero: "Drama", anio: 2016, vistas: 3000000, rating: 8.6, temporadas: 6, estado: "Activo" },
+  { titulo: "Titanic", tipo: "Pelicula", genero: "Drama", anio: 1997, vistas: 9400000, rating: 7.9, estado: "Activo" },
+  { titulo: "La La Land", tipo: "Pelicula", genero: "Drama", anio: 2016, vistas: 5800000, rating: 8.0, estado: "Activo" },
+
+  // --- COMEDIA & ANIMACION ---
+  { titulo: "Super Mario Bros", tipo: "Pelicula", genero: "Animacion", anio: 2023, vistas: 8300000, rating: 7.1, estado: "Activo" },
+  { titulo: "Toy Story", tipo: "Pelicula", genero: "Animacion", anio: 1995, vistas: 8600000, rating: 8.3, estado: "Activo" },
+  { titulo: "Shrek", tipo: "Pelicula", genero: "Animacion", anio: 2001, vistas: 8900000, rating: 7.9, estado: "Activo" },
+  { titulo: "The Office", tipo: "Serie", genero: "Comedia", anio: 2005, vistas: 8800000, rating: 8.9, temporadas: 9, estado: "Activo" },
+  { titulo: "Friends", tipo: "Serie", genero: "Comedia", anio: 1994, vistas: 8200000, rating: 8.9, temporadas: 10, estado: "Activo" },
+  { titulo: "Barbie", tipo: "Pelicula", genero: "Comedia", anio: 2023, vistas: 8100000, rating: 7.0, estado: "Activo" },
+  { titulo: "The Hangover", tipo: "Pelicula", genero: "Comedia", anio: 2009, vistas: 5200000, rating: 7.7, estado: "Activo" },
+  { titulo: "Superbad", tipo: "Pelicula", genero: "Comedia", anio: 2007, vistas: 4100000, rating: 7.6, estado: "Activo" },
+  { titulo: "Mean Girls", tipo: "Pelicula", genero: "Comedia", anio: 2004, vistas: 5600000, rating: 7.1, estado: "Activo" },
+  { titulo: "Groundhog Day", tipo: "Pelicula", genero: "Comedia", anio: 1993, vistas: 3400000, rating: 8.0, estado: "Inactivo" },
+
+  // --- TERROR (Nicho) ---
+  { titulo: "The Shining", tipo: "Pelicula", genero: "Terror", anio: 1980, vistas: 6100000, rating: 8.4, estado: "Activo" },
+  { titulo: "Get Out", tipo: "Pelicula", genero: "Terror", anio: 2017, vistas: 5300000, rating: 7.7, estado: "Activo" },
+  { titulo: "Hereditary", tipo: "Pelicula", genero: "Terror", anio: 2018, vistas: 2900000, rating: 7.3, estado: "Activo" },
+  { titulo: "It", tipo: "Pelicula", genero: "Terror", anio: 2017, vistas: 5900000, rating: 7.3, estado: "Activo" },
+  { titulo: "The Exorcist", tipo: "Pelicula", genero: "Terror", anio: 1973, vistas: 6800000, rating: 8.1, estado: "Activo" },
+  { titulo: "Psycho", tipo: "Pelicula", genero: "Terror", anio: 1960, vistas: 5500000, rating: 8.5, estado: "Inactivo" },
+  { titulo: "Alien", tipo: "Pelicula", genero: "Terror", anio: 1979, vistas: 7100000, rating: 8.5, estado: "Activo" },
+  { titulo: "Saw", tipo: "Pelicula", genero: "Terror", anio: 2004, vistas: 4600000, rating: 7.6, estado: "Activo" },
+  { titulo: "The Conjuring", tipo: "Pelicula", genero: "Terror", anio: 2013, vistas: 5700000, rating: 7.5, estado: "Activo" },
+  { titulo: "Midsommar", tipo: "Pelicula", genero: "Terror", anio: 2019, vistas: 2600000, rating: 7.1, estado: "Activo" }
+])

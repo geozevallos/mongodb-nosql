@@ -1,0 +1,6 @@
+Nuestra plataforma de streaming ha dejado de ser una startup pequeña. Hoy, miles de usuarios intentan acceder a nuestro catálogo simultáneamente. El equipo de Producto y el Directorio te han planteado tres problemas críticos que debes resolver usando la consola de MongoDB:
+
+Experiencia de Usuario (UX): La aplicación móvil se congela porque intenta cargar todo el catálogo de golpe. Necesitamos implementar paginación y filtros de ordenamiento (Lo más nuevo, lo más visto, lo mejor calificado).
+Calidad de Datos: Se sospecha que hay registros corruptos, licencias vencidas (Inactivos) y datos mal ingresados que están afectando los reportes.
+Inteligencia de Negocio: Marketing necesita listas específicas (micro-segmentación) para campañas de email, pero no podemos enviarles objetos JSON pesados; necesitan datos limpios.
+Tu Misión: Utilizar el poder de los Cursores (`sort`, `limit`, `skip`), Operadores y Proyecciones para transformar nuestra base de datos en una fuente de información eficiente y rentable.
