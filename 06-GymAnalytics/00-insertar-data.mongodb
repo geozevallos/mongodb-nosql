@@ -1,0 +1,73 @@
+// Usar la base de datos
+use ('dbGymAnalytics');
+
+// Limpiando las colecciones
+db.miembros.drop();
+db.sesiones.drop();
+
+// Generar 50 documentos para la colección miembros
+var planes = ["Básico", "Gold", "Platinum"];
+var generos = ["M", "F"];
+var actividadesLista = ["Yoga", "Karate", "Crossfit", "Pesas", "Cardio", "Boxeo", "Pilates"];
+var estados = ["Activo", "Inactivo", "Pendiente"];
+
+var miembrosTemp = [];
+
+for (var i = 1; i <= 50; i++) {
+    var planRandom = planes[Math.floor(Math.random() * planes.length)];
+    var generoRandom = generos[Math.floor(Math.random() * generos.length)];
+    
+    // Precio base según plan para simular pagos acumulados
+    var pagoBase = planRandom === "Platinum" ? 1500 : (planRandom === "Gold" ? 900 : 500);
+    
+    miembrosTemp.push({
+        _id: i,
+        nombre: "Miembro " + i,
+        edad: Math.floor(Math.random() * (60 - 18 + 1) + 18), // Edad 18-60
+        genero: generoRandom,
+        plan: planRandom,
+        fecha_registro: new Date(2023, Math.floor(Math.random() * 12), Math.floor(Math.random() * 28)),
+        pagos_acumulados: pagoBase + Math.floor(Math.random() * 500),
+        estado: estados[Math.floor(Math.random() * estados.length)],
+        medidas: {
+            peso_kg: Math.floor(Math.random() * (100 - 50 + 1) + 50),
+            altura_cm: Math.floor(Math.random() * (190 - 150 + 1) + 150)
+        },
+        actividades: [ // Array de 2 intereses aleatorios
+            actividadesLista[Math.floor(Math.random() * actividadesLista.length)],
+            actividadesLista[Math.floor(Math.random() * actividadesLista.length)]
+        ]
+    });
+}
+
+// Inserción masiva usando insertMany (Más eficiente)
+db.miembros.insertMany(miembrosTemp);
+print("✅ 50 Miembros insertados correctamente.");
+
+
+// Generar 50 documentos para la colección sesiones
+var tiposClase = ["Yoga", "Crossfit", "Zumba", "Boxeo", "Spinning", "Karate"];
+var entrenadores = ["Carlos", "Ana", "Luis", "Maria", "Pedro"];
+var niveles = ["Principiante", "Intermedio", "Avanzado"];
+
+var sesionesTemp = [];
+
+for (var j = 1; j <= 50; j++) {
+    var tipoRandom = tiposClase[Math.floor(Math.random() * tiposClase.length)];
+    
+    sesionesTemp.push({
+        _id: "ses-" + j,
+        tipo_clase: tipoRandom,
+        entrenador: entrenadores[Math.floor(Math.random() * entrenadores.length)],
+        nivel: niveles[Math.floor(Math.random() * niveles.length)],
+        duracion_minutos: Math.floor(Math.random() * (90 - 30 + 1) + 30), // 30 a 90 min
+        calorias_quemadas_avg: Math.floor(Math.random() * (800 - 200 + 1) + 200),
+        asistentes: Math.floor(Math.random() * (30 - 5 + 1) + 5),
+        fecha: new Date(2023, Math.floor(Math.random() * 12), Math.floor(Math.random() * 28)),
+        rating_clase: Math.floor(Math.random() * (5 - 3 + 1) + 3) // 3 a 5 estrellas
+    });
+}
+
+// Inserción masiva usando insertMany
+db.sesiones.insertMany(sesionesTemp);
+print("✅ 50 Sesiones insertadas correctamente.");

@@ -1,0 +1,20 @@
+// Usar la base de datos
+use ('dbGymAnalytics');
+
+db.miembros.aggregate(
+    [
+        // Listar contactos platinium y activos
+        {
+            $match: {
+              plan: "Platinum", estado: "Activo"
+            }
+        },
+        // Visualizar los atribuos nombre y edad
+        {
+            $project: {
+              _id: 0, nombre:1, edad:1
+            }
+
+        }
+    ]
+)

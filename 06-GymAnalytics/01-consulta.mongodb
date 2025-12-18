@@ -1,0 +1,6 @@
+// Usar la base de datos
+use ('dbGymAnalytics');
+
+// Listar documentos
+db.miembros.find();
+db.sesiones.find();
