@@ -101,4 +101,71 @@ db.clients.find();
 /*
 Sentencia mongodb que modifique el email, el apellido,
  el número de teléfono y dirección de tres clientes.
+
+
+ db.clients.updateOne(
+    { 
+        _id: 1
+    },
+    {
+        $set: 
+        {
+            email: "micorreo123@gmail.com",
+            apellidos: "nuevo apellido",
+            telefono: 999969656,
+            direccion: "nueva direccion 123"
+        }
+    }
+)
+
+ db.clients.updateOne(
+    { 
+        _id: 2
+    },
+    {
+        $set: 
+        {
+            email: "micorreo1243@gmail.com",
+            apellidos: "nuevo apellido 2",
+            telefono: 999967856,
+            direccion: "nueva direccion 1235"
+        }
+    }
+)
+
+ db.clients.updateOne(
+    { 
+        _id: 3
+    },
+    {
+        $set: 
+        {
+            email: "micorreo12355@gmail.com",
+            apellidos: "nuevo apellido 5",
+            telefono: 98565854,
+            direccion: "nueva direccion 1234"
+        }
+    }
+)
+
+db.clients.find()
+
+/* 
+Elimine aquellos datos de clientes cuyo 
+estado civil es “casado”.
+
+db.clients.deleteMany({
+    estadoCivil: "Soltero"
+});
+
+db.clients.find(
+    {estadoCivil: "Soltero"}
+).count()
+
+
+db.clients.deleteOne({
+    _id: 5
+});
 */
+
+db.clients.find();

@@ -1,0 +1,15 @@
+ 
+ use("baticell_store")
+
+/*
+Listar todos los productos de Sistemas Operativo Android 10, 
+debe mostrar: nombre, descripción, precio_unitario y categoría
+*/
+db.products.find(
+    {
+        "especificaciones.sistema_operativo": "Android 10"
+    },
+    {
+        nombre: 1, descripcion: 1, precio_unitario: 1, categoria:1, _id: 0
+    }
+)
