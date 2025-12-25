@@ -1,0 +1,104 @@
+ 
+ use("baticell_store")
+
+
+// Inserte de forma masiva 5 nuevos clientes (dos de estado civil soltero 
+// y dos de estado civil casado y otro sin estado). 
+// Estos nuevos documentos deben tener valores correlativos (1, 2, 3, 4 y 5) al _id.
+ 
+/*
+ db.clients.insertMany([
+    {
+        "_id": 1,
+        "nombre": "Carlos",
+        "apellidos": "Mendoza",
+        "email": "carlos.mendoza@gmail.com",
+        "telefono": "998877665",
+        "direccion": "Calle Futura 23, Miraflores",
+        "fechaRegistro": ISODate("2024-01-10T00:00:00Z"),
+        "modeloFavorito": "iPhone 13",
+        "historialCompras": [
+            { "producto": "iPhone 13", "fecha": ISODate("2024-02-01T00:00:00Z"), "cantidad": 1 }
+        ],
+        "suscripciones": ["Novedades Apple", "Ofertas Especiales"],
+        "activo": true,
+        "puntos": 200,
+        "estadoCivil": "Soltero"
+    },
+    {
+        "_id": 2,
+        "nombre": "Lucía",
+        "apellidos": "Ramírez",
+        "email": "lucia.ramirez@yahoo.com",
+        "telefono": "998766554",
+        "direccion": "Avenida Rosa 89, Surquillo",
+        "fechaRegistro": ISODate("2024-01-15T00:00:00Z"),
+        "modeloFavorito": "Samsung Galaxy S21",
+        "historialCompras": [
+            { "producto": "Samsung Galaxy S21", "fecha": ISODate("2024-02-10T00:00:00Z"), "cantidad": 1 }
+        ],
+        "suscripciones": ["Novedades Samsung", "Ofertas Especiales"],
+        "activo": true,
+        "puntos": 250,
+        "estadoCivil": "Soltero"
+    },
+    {
+        "_id": 3,
+        "nombre": "Carlos",
+        "apellidos": "González",
+        "email": "carlos.gonzalez@gmail.com",
+        "telefono": "997755443",
+        "direccion": "Calle Secundaria 123, San Borja",
+        "fechaRegistro": ISODate("2024-02-05T00:00:00Z"),
+        "modeloFavorito": "Google Pixel 6",
+        "historialCompras": [
+            { "producto": "Google Pixel 6", "fecha": ISODate("2024-02-15T00:00:00Z"), "cantidad": 1 }
+        ],
+        "suscripciones": ["Novedades Google", "Ofertas Especiales"],
+        "activo": true,
+        "puntos": 300,
+        "estadoCivil": "Casado"
+    },
+    {
+        "_id": 4,
+        "nombre": "María",
+        "apellidos": "López",
+        "email": "maria.lopez@outlook.com",
+        "telefono": "977644332",
+        "direccion": "Avenida La Paz 55, San Isidro",
+        "fechaRegistro": ISODate("2024-01-20T00:00:00Z"),
+        "modeloFavorito": "OnePlus 9 Pro",
+        "historialCompras": [
+            { "producto": "OnePlus 9 Pro", "fecha": ISODate("2024-02-20T00:00:00Z"), "cantidad": 1 }
+        ],
+        "suscripciones": ["Novedades OnePlus", "Ofertas Especiales"],
+        "activo": true,
+        "puntos": 350,
+        "estadoCivil": "Casado"
+    },
+    {
+        "_id": 5,
+        "nombre": "Pedro",
+        "apellidos": "Pérez",
+        "email": "pedro.perez@gmail.com",
+        "telefono": "996633221",
+        "direccion": "Calle Rosa 78, San Miguel",
+        "fechaRegistro": ISODate("2024-02-25T00:00:00Z"),
+        "modeloFavorito": "Xiaomi Mi 11",
+        "historialCompras": [
+            { "producto": "Xiaomi Mi 11", "fecha": ISODate("2024-03-01T00:00:00Z"), "cantidad": 1 }
+        ],
+        "suscripciones": ["Novedades Xiaomi", "Ofertas Especiales"],
+        "activo": true,
+        "puntos": 400
+    }
+]);
+
+
+db.clients.find();
+*/
+
+/*
+Sentencia mongodb que modifique el email, el apellido,
+ el número de teléfono y dirección de tres clientes.
+*/
