@@ -16,7 +16,7 @@ db.products.insertMany([
             "ram": "8 GB",
             "almacenamiento": "256 GB",
             "bateria": "4200 mAh",
-            "sistema_operativo": "Android 10"
+            "especificaciones": "Android 10"
         },
         "imei": "456789123012345",
         "categoria": "Smartphone",

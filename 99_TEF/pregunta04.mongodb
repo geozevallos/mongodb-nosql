@@ -1,2 +1,37 @@
  
  use("baticell_store")
+/*Listar todos los productos con sus respectivos: 
+nombre, imei, categoría y colores disponibles, 
+filtre aquellos productos de cantidad menor igual a 40. 
+ordene en descendente por cantidad del producto.
+*/
+
+db.products.find(
+    {cantidad: {$lte: 40}},
+    {nombre: 1, 
+        imei: 1,
+        categoria: 1,
+        coloresDisponibles: 1,
+        _id: 0
+    }
+).sort({cantidad: -1});
+
+/*
+Listar todos los productos con sus 
+respectivos nombre, precio_unitario, 
+marca y especificaciones, filtre 
+aquellos productos de 
+Sistema Operativo Android 11 .  
+Ordenar de manera ascendente 
+por marca y precio_unitario descendente
+ */
+
+db.products.find(
+    {"especificaciones.sistema_operativo": "Android 11"},
+    {   nombre: 1, 
+        precio_unitario: 1,
+        marca: 1,
+        especificaciones: 1,
+        _id: 0
+    }
+).sort({marca: 1}, {precio_unitario: -1});
